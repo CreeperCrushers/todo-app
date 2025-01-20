@@ -80,10 +80,11 @@ async function deleteTasks(){
     ]).then((value) => {
         if(value.name <= tasks.length){
             console.log(`Removed task no.${value.name}`)
-            tasks.splice(value.name, 1)
+            tasks.splice(value.name - 1, 1)
             let latestData = JSON.stringify(tasks)
             writeFileSync(filePath,latestData)
         }
     })
     asker()
 }
+asker()
